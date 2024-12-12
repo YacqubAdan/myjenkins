@@ -12,8 +12,12 @@ pipeline {
             steps {
                 echo "Building.."
                 sh '''
-                cd myapp
-                pip install -r requirements.txt
+                # Create a virtual environment
+                python3 -m venv venv
+                # Activate the virtual environment
+                . venv/bin/activate
+                # Install dependencies
+                pip install -r myapp/requirements.txt
                 '''
             }
         }
