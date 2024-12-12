@@ -25,8 +25,13 @@ pipeline {
             steps {
                 echo "Testing.."
                 sh '''
+                # Activate the virtual environment
+                . venv/bin/activate
+                # Change to the 'myapp' directory
                 cd myapp
+                # Run the Python script with no arguments
                 python3 hello.py
+                # Run the Python script with the argument --name=Yacquub
                 python3 hello.py --name=Yacquub
                 '''
             }
